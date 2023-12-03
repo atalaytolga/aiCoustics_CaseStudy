@@ -1,11 +1,10 @@
 # ai|coustics - Case Study
 
-This repository proposes a method for ai|coustics case study. This toolkit contains a crawler for crawling speech data from internet, NISQA to evaluate speech quality of all speech audio quality, and a sorter to sort files by predicted speech quality.  
+This repository proposes a method for ai|coustics case study. This toolkit contains a script for crawling speech data from internet, a deep learning model, NISQA, to automatically evaluate speech quality of speech files, and a script to sort files by predicted speech quality.  
 
 **Crawler**
 
-Crawler, fetches zip files containing A noisy speech corpus (NOIZEUS) from https://ecs.utdallas.edu/loizou/speech/noizeus/ and extracts audio files. 
-By default downloaded files will be extracted to 'audio-files' directory. This crawler is not expected to work on another website, as website structures varied. 
+Crawler, fetches zip files containing A noisy speech corpus (NOIZEUS) from https://ecs.utdallas.edu/loizou/speech/noizeus/ and extracts audio files. By default, downloaded files will be extracted to 'audio-files' directory. Since website structures differ, this script is not expected to work on any other website.
 
 
 **NISQA**

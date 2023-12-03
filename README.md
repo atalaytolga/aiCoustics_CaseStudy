@@ -1,12 +1,16 @@
 # ai|coustics - Case Study
 
+This repository proposes a method for ai|coustics case study. This toolkit contains a crawler for crawling speech data from internet, NISQA to evaluate speech quality of all speech audio quality, and a sorter to sort files by predicted speech quality.  
+
 **Crawler**
 
-Crawler, fetches zip files containing A noisy speech corpus (NOIZEUS) from https://ecs.utdallas.edu/loizou/speech/noizeus/ and extracts audio files.
+Crawler, fetches zip files containing A noisy speech corpus (NOIZEUS) from https://ecs.utdallas.edu/loizou/speech/noizeus/ and extracts audio files. 
+By default downloaded files will be extracted to 'audio-files' directory. This crawler is not expected to work on another website, as website structures varied. 
+
 
 **NISQA**
 
-NISQA is a deep learning model/framework for speech quality prediction.
+NISQA, a pre-trained deep CNN-self-Attention model is used to predict the quality of speech samples in this project. 
 
 **Sorter**
 
@@ -15,23 +19,30 @@ Sorter is used to sort CSV file contains NISQA prediction results by descending 
 ## Installation
 To install requirements install [Anaconda](https://www.anaconda.com/products/individual) and then use:
 
-```setup
+```
 conda env create -f env.yml
 ```
 
 This will create a new environment with the name "nisqa". Activate this environment to go on:
 
-```setup2
+```
 conda activate nisqa
 ```
 ## Usage
 
+To fetch noisy speech corpus (NOIZEUS) from https://ecs.utdallas.edu/loizou/speech/noizeus/ use:
+
 ```
 python .\Toolkit\Crawler.py
 ```
+
+To predict speech quality of all the downloaded audio files with NISQA use:
+
 ```
 python .\NISQA\run_predict.py --mode predict_dir --pretrained_model NISQA\weights\nisqa.tar --data_dir .\audio-files --num_workers 0 --bs 10 --output_dir .\results
 ```
+
+Finally, sorter can be utilized to sort CSV file by predicted speech quality to classify audio files further:
 
 ```
 python .\Toolkit\Sorter.py
@@ -39,10 +50,16 @@ python .\Toolkit\Sorter.py
 
 
 ## NISQA
+For more info on the NISQA see:
+
 https://github.com/gabrielmittag/NISQA
 ## NISQA Corpus
+NISQA is trained on NISQA Corpus, more details on methods and speech samples are provided in NISQA Corpus Wiki:
+
 https://github.com/gabrielmittag/NISQA/wiki/NISQA-Corpus
 ## NOIZEUS Corpus
+NOIZEUS is a noisy spech corpus, produced artificially by corrupting speech recordings with real life noises provided by AURORA database. 
+
 https://ecs.utdallas.edu/loizou/speech/noizeus/
 
 
